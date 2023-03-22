@@ -269,15 +269,15 @@ function toObjectID( id ) {
         return id;
     }
 
-    if ( typeof id == 'string' && id.length == 24 && mongodb.ObjectID.isValid( id ) ) {
-        return mongodb.ObjectID( id );
+    if ( typeof id == 'string' && id.length == 24 && mongodb.ObjectId.isValid( id ) ) {
+        return new mongodb.ObjectId( id );
     } else {
         return id;
     }
 }
 
 function fromObjectID( id ) {
-    if ( id instanceof mongodb.ObjectID ) {
+    if ( mongodb.ObjectId.isValid(id) ) {
         return id.toString();
     } else {
         return id;
