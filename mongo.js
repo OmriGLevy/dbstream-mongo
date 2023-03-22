@@ -6,7 +6,7 @@ const db = require( 'dbstream' );
 const util = require( 'util' );
 
 module.exports.mongodb = mongodb
-module.exports.ObjectID = mongodb.ObjectId
+module.exports.ObjectID = mongodb.ObjectID
 
 const CLOSE_TIME_OUT = 10 * 60 * 1000 // 10 minutes
 
@@ -269,15 +269,15 @@ function toObjectID( id ) {
         return id;
     }
 
-    if ( typeof id == 'string' && id.length == 24 && mongodb.ObjectId.isValid( id ) ) {
-        return mongodb.ObjectId( id );
+    if ( typeof id == 'string' && id.length == 24 && mongodb.ObjectID.isValid( id ) ) {
+        return mongodb.ObjectID( id );
     } else {
         return id;
     }
 }
 
 function fromObjectID( id ) {
-    if (mongodb.ObjectId.isValid(id)) {
+    if ( id instanceof mongodb.ObjectID ) {
         return id.toString();
     } else {
         return id;
