@@ -6,7 +6,7 @@ const db = require( 'dbstream' );
 const util = require( 'util' );
 
 module.exports.mongodb = mongodb
-module.exports.ObjectID = mongodb.ObjectID
+module.exports.ObjectID = mongodb.ObjectId
 
 const CLOSE_TIME_OUT = 10 * 60 * 1000 // 10 minutes
 
